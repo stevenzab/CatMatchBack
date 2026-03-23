@@ -19,6 +19,7 @@ namespace CatMatch.Domain.MapDto
 
             return new CatDto
             {
+                Id = source.Id,
                 Url = source.Url,
                 Vote = source.Vote
             };
