@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CatMatch.API/CatMatch.API.csproj" />
+  <Project Path="CatMatch.Application/CatMatch.Application.csproj" />
+  <Project Path="CatMatch.Domain/CatMatch.Domain.csproj" />
+  <Project Path="CatMatch.Infrastructure/CatMatch.Infrastructure.csproj" />
+</Solution>

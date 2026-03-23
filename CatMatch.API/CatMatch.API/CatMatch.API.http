@@ -1,0 +1,6 @@
+@CatMatch.API_HostAddress = http://localhost:5081
+
+GET {{CatMatch.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
