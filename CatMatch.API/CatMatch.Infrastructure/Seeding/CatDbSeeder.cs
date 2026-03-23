@@ -30,11 +30,6 @@ namespace CatMatch.Infrastructure.Seeding
 
         public async Task SeedAsync()
         {
-            if (await HasDataAsync())
-            {
-                return;
-            }
-
             if (File.Exists(seedFilePath))
             {
                 return;

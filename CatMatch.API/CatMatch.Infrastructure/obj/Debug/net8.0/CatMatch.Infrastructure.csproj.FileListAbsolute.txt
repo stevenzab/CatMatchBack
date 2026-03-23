@@ -10,3 +10,7 @@ C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructu
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\obj\Debug\net8.0\refint\CatMatch.Infrastructure.dll
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\obj\Debug\net8.0\CatMatch.Infrastructure.pdb
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\obj\Debug\net8.0\ref\CatMatch.Infrastructure.dll
+C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\bin\Debug\net8.0\CatMatch.Domain.dll
+C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\bin\Debug\net8.0\CatMatch.Domain.pdb
+C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\obj\Debug\net8.0\CatMatch.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Infrastructure\obj\Debug\net8.0\CatMatch.58C21E59.Up2Date
