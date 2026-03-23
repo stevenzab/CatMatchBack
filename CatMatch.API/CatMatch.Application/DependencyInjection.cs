@@ -1,4 +1,5 @@
 ﻿using CatMatch.Application.Services;
+using CatMatch.Application.Services.CatMatch;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace CatMatch.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<ICatMatchService, CatMatchService>();
+            services.AddScoped<ICatMatchDataAccess, CatMatchDataAccess>();
 
             return services;
         }

@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CatMatch.Domain\CatMatch.Domain.csproj" />
+    <ProjectReference Include="..\CatMatch.Infrastructure\CatMatch.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
