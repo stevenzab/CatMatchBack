@@ -10,6 +10,8 @@ namespace CatMatch.Domain.Models
     {
         public string Url { get; set; }
 
+        public string OriginalId { get; set; }
+
         public int Vote { get; set; }
     }
 }
