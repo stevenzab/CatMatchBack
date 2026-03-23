@@ -10,3 +10,4 @@ C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Domain\obj\D
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Domain\obj\Debug\net8.0\refint\CatMatch.Domain.dll
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Domain\obj\Debug\net8.0\CatMatch.Domain.pdb
 C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Domain\obj\Debug\net8.0\ref\CatMatch.Domain.dll
+C:\Users\Steven\Documents\GitHub\CatMatchBack\CatMatch.API\CatMatch.Domain\obj\Debug\net8.0\CatMatch.Domain.csproj.AssemblyReference.cache
