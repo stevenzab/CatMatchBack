@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CatMatch.Domain.Dto;
+using CatMatch.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,7 @@ namespace CatMatch.Application.Services
 {
     public interface ICatMatchService
     {
+        Task<IEnumerable<CatDto>> GetAllCatAsync();
+        Task<CatDto> VoteCat(CatDto cat);
     }
 }
