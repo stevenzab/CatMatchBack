@@ -8,6 +8,6 @@ namespace CatMatch.Domain.Models
 {
     public class Cat : RepositoryCollection
     {
-        public string url { get; set; }
+        public string Url { get; set; }
     }
 }
