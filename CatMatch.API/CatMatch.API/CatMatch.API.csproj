@@ -11,6 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="response.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CatMatch.Application\CatMatch.Application.csproj" />
     <ProjectReference Include="..\CatMatch.Infrastructure\CatMatch.Infrastructure.csproj" />
   </ItemGroup>
