@@ -47,7 +47,7 @@ namespace CatMatch.Infrastructure.Seeding
             {
                 foreach (var img in parsed.Images)
                 {
-                    await repository.AddAsync(new Cat { url = img.url });
+                    await repository.AddAsync(new Cat { Url = img.Url });
                 }
             }
         }
