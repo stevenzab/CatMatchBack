@@ -133,7 +133,14 @@
           "net8.0": {
             "framework": "net8.0",
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Steven\\Documents\\GitHub\\CatMatchBack\\CatMatch.API\\CatMatch.Domain\\CatMatch.Domain.csproj": {
+                "projectPath": "C:\\Users\\Steven\\Documents\\GitHub\\CatMatchBack\\CatMatch.API\\CatMatch.Domain\\CatMatch.Domain.csproj"
+              },
+              "C:\\Users\\Steven\\Documents\\GitHub\\CatMatchBack\\CatMatch.API\\CatMatch.Infrastructure\\CatMatch.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Steven\\Documents\\GitHub\\CatMatchBack\\CatMatch.API\\CatMatch.Infrastructure\\CatMatch.Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

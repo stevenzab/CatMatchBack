@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "CatMatch.API.Controllers.CatMatchController",
+    "Method": "GetAllCat",
+    "RelativePath": "CatMatch/GetAllCat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CatMatch.API.Controllers.CatMatchController",
+    "Method": "VoteCat",
+    "RelativePath": "CatMatch/VoteCat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cat",
+        "Type": "CatMatch.Domain.Dto.CatDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CatMatch.API.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

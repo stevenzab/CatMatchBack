@@ -1,3 +1,4 @@
+using CatMatch.Application;
 using CatMatch.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services
     .AddSwaggerGen()
+    .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
