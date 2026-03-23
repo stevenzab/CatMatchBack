@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CatMatch.Infrastructure.Seeding
@@ -30,19 +31,33 @@ namespace CatMatch.Infrastructure.Seeding
 
         public async Task SeedAsync()
         {
-            if (File.Exists(seedFilePath))
+            if (!File.Exists(seedFilePath))
             {
                 return;
             }
 
             var json = await File.ReadAllTextAsync(seedFilePath);
-            var parsed = System.Text.Json.JsonSerializer.Deserialize<SeedCat>(json, new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-            if (parsed?.Images != null)
+            var options = new JsonSerializerOptions
             {
+                PropertyNameCaseInsensitive = true,
+                WriteIndented = true
+            };
+
+            var parsed = JsonSerializer.Deserialize<SeedCat>(json, options);
+
+            if (parsed?.Images != null && parsed.Images.Count > 0)
+            {
+
                 foreach (var img in parsed.Images)
                 {
-                    await repository.AddAsync(new Cat { Url = img.Url });
+                    if (string.IsNullOrEmpty(img.Url))
+                    {
+                        continue;
+                    }
+
+                    var newCat = new Cat { Url = img.Url, OriginalId = img.OriginalId, Vote = 0 };
+                    await repository.AddAsync(newCat);
                 }
             }
         }
