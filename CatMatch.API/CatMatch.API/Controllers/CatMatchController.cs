@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CatMatch.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CatMatchController : ControllerBase
     {
         private readonly ICatMatchService service;
