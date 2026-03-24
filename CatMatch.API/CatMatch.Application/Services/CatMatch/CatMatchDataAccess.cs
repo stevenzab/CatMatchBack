@@ -26,7 +26,12 @@ namespace CatMatch.Application.Services.CatMatch
 
         public async Task VoteCat(Cat cat)
         {
-            await baseRepository.AddAsync(cat);
+            await baseRepository.UpdateVoteAsync(cat.Id, cat.Vote);
+        }
+
+        public async Task<Cat> GetCatByIdAsync(string id)
+        {
+            return await baseRepository.AsQueryable<Cat>().FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -12,5 +12,7 @@ namespace CatMatch.Application.Services
     {
         Task<IEnumerable<CatDto>> GetAllCatAsync();
         Task<CatDto> VoteCat(CatDto cat);
+
+        Task<CatDto> GetCatByIdAsync(string id);
     }
 }

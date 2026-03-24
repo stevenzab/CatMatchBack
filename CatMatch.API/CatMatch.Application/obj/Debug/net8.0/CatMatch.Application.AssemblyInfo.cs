@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMatch.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d049c7ca74b37907a21ce15228d47bf8eb3fe79e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d04304f9eabaf300e1201c0a089c0e30bafdefc")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMatch.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMatch.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
