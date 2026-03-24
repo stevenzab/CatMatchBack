@@ -15,5 +15,7 @@ namespace CatMatch.Infrastructure.Common
         IQueryable<T> AsQueryable<T>();
 
         IMongoCollection<T> GetCollection<T>(string name);
+
+        Task<bool> UpdateVoteAsync(string id, int voteIncrement);
     }
 }

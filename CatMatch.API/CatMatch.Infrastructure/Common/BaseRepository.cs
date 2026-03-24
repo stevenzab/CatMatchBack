@@ -31,5 +31,20 @@ namespace CatMatch.Infrastructure.Common
         {
             return database.GetCollection<T>(name);
         }
+
+        public async Task<bool> UpdateVoteAsync(string id, int voteIncrement)
+        {
+            var collection = database.GetCollection<Cat>("Cat");
+
+            var filter = Builders<Cat>.Filter.Eq(c => c.Id, id);
+            var update = Builders<Cat>.Update
+                .Inc(c => c.Vote, voteIncrement) 
+                .Set(c => c.Updated, DateTime.Now);
+
+            var result = await collection.UpdateOneAsync(filter, update);
+
+            return result.ModifiedCount > 0;
+        }
+
     }
 }
