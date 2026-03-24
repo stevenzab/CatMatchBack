@@ -28,5 +28,11 @@ namespace CatMatch.API.Controllers
             var result = await service.VoteCat(cat);
             return Ok(result);
         }
+        [HttpGet("GetCatById/{id}")]
+        public async Task<IActionResult> GetCatById(string id)
+        {
+            var cat = await service.GetCatByIdAsync(id);
+            return Ok(cat);
+        }
     }
 }

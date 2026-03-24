@@ -86,10 +86,6 @@
           "vote": {
             "type": "integer",
             "format": "int32"
-          },
-          "score": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
