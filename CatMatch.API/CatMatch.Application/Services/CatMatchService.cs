@@ -1,12 +1,6 @@
 ﻿using CatMatch.Application.Services.CatMatch;
 using CatMatch.Domain.Dto;
 using CatMatch.Domain.MapDto;
-using CatMatch.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CatMatch.Application.Services
 {
@@ -20,17 +14,20 @@ namespace CatMatch.Application.Services
         }
         public async Task<IEnumerable<CatDto>> GetAllCatAsync()
         {
-            var cat = await service.GetAllCatAsync();
+            var cats = await service.GetAllCatAsync();
 
-            var catDto = cat.Select(c => c.MapToDto()).ToList();
+            var catDtos = cats.Select(c => c.MapToDto()).ToList();
 
-            return catDto;
+            return catDtos;
         }
         public async Task<CatDto> GetCatByIdAsync(string id)
         {
             var cat = await service.GetCatByIdAsync(id);
-            var catDto = cat.MapToDto();
-            return catDto;
+
+            if (cat == null)
+                throw new KeyNotFoundException($"Chat avec l'ID {id} non trouvé");
+
+            return cat.MapToDto();
         }
         public async Task<CatDto> VoteCatAsync(CatDto catDto)
         {

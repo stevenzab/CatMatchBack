@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CatMatch.Domain.Settings
+﻿namespace CatMatch.Domain.Settings
 {
     public class MongoSettings
     {

@@ -1,12 +1,6 @@
-﻿using CatMatch.Domain.Dto;
-using CatMatch.Domain.Models;
+﻿using CatMatch.Domain.Models;
 using CatMatch.Infrastructure.Common;
 using MongoDB.Driver.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CatMatch.Application.Services.CatMatch
 {

@@ -1,10 +1,4 @@
-﻿using CatMatch.Domain.Dto;
-using CatMatch.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CatMatch.Domain.Models;
 
 namespace CatMatch.Application.Services.CatMatch
 {
