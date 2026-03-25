@@ -1,6 +1,10 @@
 <Solution>
-  <Project Path="./CatMatch.API/CatMatch.API/CatMatch.API.csproj" />
-  <Project Path="./CatMatch.API/CatMatch.Application/CatMatch.Application.csproj" />
-  <Project Path="./CatMatch.API/CatMatch.Domain/CatMatch.Domain.csproj" />
-  <Project Path="./CatMatch.API/CatMatch.Infrastructure/CatMatch.Infrastructure.csproj" />
+  <Project Path="CatMatch.API/CatMatch.API/CatMatch.API.csproj" />
+  <Project Path="CatMatch.API/CatMatch.Application/CatMatch.Application.csproj" />
+  <Project Path="CatMatch.API/CatMatch.Domain/CatMatch.Domain.csproj" />
+  <Project Path="CatMatch.API/CatMatch.Infrastructure/CatMatch.Infrastructure.csproj" />
+  <Project Path="tests/CatMatch.Api.UnitTests/CatMatch.Api.UnitTests.csproj" Id="54a7cb5d-4947-491f-8ace-4ab17a998e6a" />
+  <Project Path="tests/CatMatch.Application.UnitTests/CatMatch.Application.UnitTests.csproj" Id="61c1e839-f9f7-42bf-8848-3146b0d43fef" />
+  <Project Path="tests/CatMatch.Domain.UnitTests/CatMatch.Domain.UnitTests.csproj" Id="ee90badf-1116-4810-a30b-efdb913345d4" />
+  <Project Path="tests/CatMatch.Infrastructure.UnitTests/CatMatch.Infrastructure.UnitTests.csproj" Id="1d6a782d-c83c-4050-ae01-cbff991c207e" />
 </Solution>
