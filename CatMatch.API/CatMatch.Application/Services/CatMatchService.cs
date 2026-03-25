@@ -32,7 +32,7 @@ namespace CatMatch.Application.Services
             var catDto = cat.MapToDto();
             return catDto;
         }
-        public async Task<CatDto> VoteCat(CatDto catDto)
+        public async Task<CatDto> VoteCatAsync(CatDto catDto)
         {
             var cat = await service.GetCatByIdAsync(catDto.Id);
 

@@ -12,7 +12,7 @@
   {
     "ContainingType": "CatMatch.API.Controllers.CatMatchController",
     "Method": "GetCatById",
-    "RelativePath": "api/CatMatch/GetCatById",
+    "RelativePath": "api/CatMatch/GetCatById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -20,7 +20,7 @@
       {
         "Name": "id",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

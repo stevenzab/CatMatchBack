@@ -25,8 +25,11 @@ namespace CatMatch.API.Controllers
         [HttpPost("VoteCat")]
         public async Task<IActionResult> VoteCat([FromBody] CatDto cat)
         {
-            var result = await service.VoteCat(cat);
-            return Ok(result);
+            var result = await service.VoteCatAsync(cat);
+            return CreatedAtAction(
+                nameof(GetCatById),
+                new { id = cat.Id },
+                result);
         }
         [HttpGet("GetCatById/{id}")]
         public async Task<IActionResult> GetCatById(string id)

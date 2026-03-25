@@ -48,7 +48,7 @@
         }
       }
     },
-    "/api/CatMatch/GetCatById": {
+    "/api/CatMatch/GetCatById/{id}": {
       "get": {
         "tags": [
           "CatMatch"
@@ -56,7 +56,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
