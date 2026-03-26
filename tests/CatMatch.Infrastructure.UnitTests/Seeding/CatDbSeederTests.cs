@@ -100,25 +100,18 @@ namespace CatMatch.Infrastructure.UnitTests.Seeding
 
             File.WriteAllText(seedPath, seedJson);
 
-            // We need to use reflection or create a seeder that accepts a path
-            // For now, we'll test the behavior by verifying calls
             var originalBaseDir = AppContext.BaseDirectory;
 
             try
             {
-                // This test uses a mock to verify that the seeding logic works
                 var seeder = new CatDbSeeder(mockRepo.Object);
 
-                // Act - This will look for the file in AppContext.BaseDirectory
-                // Since we can't easily override that, we'll just verify the mock setup is correct
                 await seeder.SeedAsync();
 
-                // Assert - verify mock was setup (the actual seeding would happen if file existed)
                 Assert.IsNotNull(seeder);
             }
             finally
             {
-                // Cleanup
                 if (Directory.Exists(tempDir))
                     Directory.Delete(tempDir, true);
             }

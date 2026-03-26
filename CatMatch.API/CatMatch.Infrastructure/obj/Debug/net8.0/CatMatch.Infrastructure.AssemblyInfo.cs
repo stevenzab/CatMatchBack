@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMatch.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcd4018c87f06008047d1cb2a3b010c294c4a809")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2149609e8ff674b70647abda8ebfe8c3088e6a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMatch.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMatch.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

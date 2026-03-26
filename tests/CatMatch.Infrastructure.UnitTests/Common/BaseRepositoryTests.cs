@@ -132,7 +132,7 @@ namespace CatMatch.Infrastructure.UnitTests.Common
             var baseRepository = this.CreateBaseRepository();
 
             // Act
-            var result = await baseRepository.UpdateVoteAsync(catId, voteIncrement);
+            var result = await baseRepository.UpdateVoteAsync(catId, voteIncrement, CancellationToken.None);
 
             // Assert
             Assert.IsTrue(result);
@@ -170,7 +170,7 @@ namespace CatMatch.Infrastructure.UnitTests.Common
             var baseRepository = this.CreateBaseRepository();
 
             // Act
-            var result = await baseRepository.UpdateVoteAsync(catId, voteIncrement);
+            var result = await baseRepository.UpdateVoteAsync(catId, voteIncrement, CancellationToken.None);
 
             // Assert
             Assert.IsFalse(result);

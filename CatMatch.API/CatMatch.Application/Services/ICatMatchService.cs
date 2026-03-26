@@ -4,8 +4,8 @@ namespace CatMatch.Application.Services
 {
     public interface ICatMatchService
     {
-        Task<IEnumerable<CatDto>> GetAllCatAsync();
-        Task<CatDto> VoteCatAsync(CatDto cat);
-        Task<CatDto> GetCatByIdAsync(string id);
+        Task<IEnumerable<CatDto>> GetAllCatAsync(CancellationToken cancellationToken);
+        Task<CatDto> VoteCatAsync(CatDto cat, CancellationToken cancellationToken);
+        Task<CatDto> GetCatByIdAsync(string id, CancellationToken cancellationToken);
     }
 }

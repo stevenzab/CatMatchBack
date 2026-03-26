@@ -13,19 +13,19 @@ namespace CatMatch.Application.Services.CatMatch
             this.baseRepository = baseRepository;
         }
 
-        public async Task<IEnumerable<Cat>> GetAllCatAsync()
+        public async Task<IEnumerable<Cat>> GetAllCatAsync(CancellationToken cancellationToken)
         {
-            return await baseRepository.AsQueryable<Cat>().OrderByDescending(x => x.Vote).ToListAsync();
+            return await baseRepository.AsQueryable<Cat>().OrderByDescending(x => x.Vote).ToListAsync(cancellationToken);
         }
 
-        public async Task VoteCat(Cat cat)
+        public async Task VoteCat(Cat cat, CancellationToken cancellationToken)
         {
-            await baseRepository.UpdateVoteAsync(cat.Id, cat.Vote);
+            await baseRepository.UpdateVoteAsync(cat.Id, cat.Vote, cancellationToken);
         }
 
-        public async Task<Cat> GetCatByIdAsync(string id)
+        public async Task<Cat> GetCatByIdAsync(string id, CancellationToken cancellationToken)
         {
-            return await baseRepository.AsQueryable<Cat>().FirstOrDefaultAsync(x => x.Id == id);
+            return await baseRepository.AsQueryable<Cat>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
     }
 }

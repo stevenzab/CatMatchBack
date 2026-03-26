@@ -11,6 +11,6 @@ namespace CatMatch.Infrastructure.Common
 
         IMongoCollection<T> GetCollection<T>(string name);
 
-        Task<bool> UpdateVoteAsync(string id, int voteIncrement);
+        Task<bool> UpdateVoteAsync(string id, int voteIncrement, CancellationToken cancellationToken);
     }
 }

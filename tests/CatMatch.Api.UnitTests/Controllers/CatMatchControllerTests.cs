@@ -29,11 +29,11 @@ namespace CatMatch.Api.UnitTests.Controllers
                 new CatDto { Id = "2", Url = "https://example.com/cat2.jpg", Vote = 5 }
             };
 
-            mockService.Setup(s => s.GetAllCatAsync())
+            mockService.Setup(s => s.GetAllCatAsync(CancellationToken.None))
                 .ReturnsAsync(catsExpected);
 
             // Act
-            var result = await controller.GetAllCat();
+            var result = await controller.GetAllCat(CancellationToken.None);
 
             // Assert
             var okResult = result as OkObjectResult;
@@ -44,7 +44,7 @@ namespace CatMatch.Api.UnitTests.Controllers
             Assert.IsNotNull(returnedCats);
             Assert.AreEqual(2, returnedCats.Count());
 
-            mockService.Verify(s => s.GetAllCatAsync(), Times.Once);
+            mockService.Verify(s => s.GetAllCatAsync(CancellationToken.None), Times.Once);
         }
 
         [TestMethod]
@@ -54,11 +54,11 @@ namespace CatMatch.Api.UnitTests.Controllers
             var catToVote = new CatDto { Id = "1", Url = "https://example.com/cat1.jpg", Vote = 10 };
             var catResult = new CatDto { Id = "1", Url = "https://example.com/cat1.jpg", Vote = 11 };
 
-            mockService.Setup(s => s.VoteCatAsync(catToVote))
+            mockService.Setup(s => s.VoteCatAsync(catToVote, CancellationToken.None))
                 .ReturnsAsync(catResult);
 
             // Act
-            var result = await controller.VoteCat(catToVote);
+            var result = await controller.VoteCat(catToVote, CancellationToken.None);
 
             // Assert
             var createdResult = result as CreatedAtActionResult;
@@ -71,7 +71,7 @@ namespace CatMatch.Api.UnitTests.Controllers
             Assert.IsNotNull(returnedCat);
             Assert.AreEqual(11, returnedCat.Vote);
 
-            mockService.Verify(s => s.VoteCatAsync(catToVote), Times.Once);
+            mockService.Verify(s => s.VoteCatAsync(catToVote, CancellationToken.None), Times.Once);
         }
 
         [TestMethod]
@@ -81,11 +81,11 @@ namespace CatMatch.Api.UnitTests.Controllers
             var catId = "1";
             var catExpected = new CatDto { Id = "1", Url = "https://example.com/cat1.jpg", Vote = 10 };
 
-            mockService.Setup(s => s.GetCatByIdAsync(catId))
+            mockService.Setup(s => s.GetCatByIdAsync(catId, CancellationToken.None))
                 .ReturnsAsync(catExpected);
 
             // Act
-            var result = await controller.GetCatById(catId);
+            var result = await controller.GetCatById(catId, CancellationToken.None);
 
             // Assert
             var okResult = result as OkObjectResult;
@@ -98,7 +98,7 @@ namespace CatMatch.Api.UnitTests.Controllers
             Assert.AreEqual("https://example.com/cat1.jpg", returnedCat.Url);
             Assert.AreEqual(10, returnedCat.Vote);
 
-            mockService.Verify(s => s.GetCatByIdAsync(catId), Times.Once);
+            mockService.Verify(s => s.GetCatByIdAsync(catId, CancellationToken.None), Times.Once);
         }
 
         [TestMethod]
@@ -106,11 +106,11 @@ namespace CatMatch.Api.UnitTests.Controllers
         {
             // Arrange
             var catId = "999";
-            mockService.Setup(s => s.GetCatByIdAsync(catId))
+            mockService.Setup(s => s.GetCatByIdAsync(catId, CancellationToken.None))
                 .ReturnsAsync((CatDto)null);
 
             // Act
-            var result = await controller.GetCatById(catId);
+            var result = await controller.GetCatById(catId, CancellationToken.None);
 
             // Assert
             var okResult = result as OkObjectResult;
@@ -118,7 +118,7 @@ namespace CatMatch.Api.UnitTests.Controllers
             Assert.AreEqual(200, okResult.StatusCode);
             Assert.IsNull(okResult.Value);
 
-            mockService.Verify(s => s.GetCatByIdAsync(catId), Times.Once);
+            mockService.Verify(s => s.GetCatByIdAsync(catId, CancellationToken.None), Times.Once);
         }
     }
 }

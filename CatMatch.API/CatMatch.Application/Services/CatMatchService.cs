@@ -12,33 +12,33 @@ namespace CatMatch.Application.Services
         {
             this.service = service;
         }
-        public async Task<IEnumerable<CatDto>> GetAllCatAsync()
+        public async Task<IEnumerable<CatDto>> GetAllCatAsync(CancellationToken cancellationToken)
         {
-            var cats = await service.GetAllCatAsync();
+            var cats = await service.GetAllCatAsync(cancellationToken);
 
             var catDtos = cats.Select(c => c.MapToDto()).ToList();
 
             return catDtos;
         }
-        public async Task<CatDto> GetCatByIdAsync(string id)
+        public async Task<CatDto> GetCatByIdAsync(string id, CancellationToken cancellationToken)
         {
-            var cat = await service.GetCatByIdAsync(id);
+            var cat = await service.GetCatByIdAsync(id, cancellationToken);
 
             if (cat == null)
                 throw new KeyNotFoundException($"Chat avec l'ID {id} non trouvé");
 
             return cat.MapToDto();
         }
-        public async Task<CatDto> VoteCatAsync(CatDto catDto)
+        public async Task<CatDto> VoteCatAsync(CatDto catDto, CancellationToken cancellationToken)
         {
-            var cat = await service.GetCatByIdAsync(catDto.Id);
+            var cat = await service.GetCatByIdAsync(catDto.Id, cancellationToken);
 
             if (cat == null)
                 throw new InvalidOperationException($"Chat avec l'ID {catDto.Id} non trouvé");
 
             cat.Vote = catDto.Vote;
 
-            await service.VoteCat(cat);
+            await service.VoteCat(cat, cancellationToken);
 
             return catDto;
         }

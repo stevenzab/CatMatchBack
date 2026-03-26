@@ -44,11 +44,11 @@ namespace CatMatch.Application.UnitTests.Services
             };
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.GetAllCatAsync())
+                .Setup(x => x.GetAllCatAsync(CancellationToken.None))
                 .ReturnsAsync(catsFromDataAccess);
 
             // Act
-            var result = await service.GetAllCatAsync();
+            var result = await service.GetAllCatAsync(CancellationToken.None);
 
             // Assert
             Assert.IsNotNull(result);
@@ -71,11 +71,11 @@ namespace CatMatch.Application.UnitTests.Services
             var catsFromDataAccess = new List<Cat>();
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.GetAllCatAsync())
+                .Setup(x => x.GetAllCatAsync(CancellationToken.None))
                 .ReturnsAsync(catsFromDataAccess);
 
             // Act
-            var result = await service.GetAllCatAsync();
+            var result = await service.GetAllCatAsync(CancellationToken.None);
 
             // Assert
             Assert.IsNotNull(result);
@@ -99,11 +99,11 @@ namespace CatMatch.Application.UnitTests.Services
             };
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.GetCatByIdAsync(id))
+                .Setup(x => x.GetCatByIdAsync(id, CancellationToken.None))
                 .ReturnsAsync(catFromDataAccess);
 
             // Act
-            var result = await service.GetCatByIdAsync(id);
+            var result = await service.GetCatByIdAsync(id, CancellationToken.None);
 
             // Assert
             Assert.IsNotNull(result);
@@ -129,15 +129,15 @@ namespace CatMatch.Application.UnitTests.Services
             };
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.GetCatByIdAsync("1"))
+                .Setup(x => x.GetCatByIdAsync("1", CancellationToken.None))
                 .ReturnsAsync(existingCat);
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.VoteCat(It.IsAny<Cat>()))
+                .Setup(x => x.VoteCat(It.IsAny<Cat>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
             // Act
-            var result = await service.VoteCatAsync(catDto);
+            var result = await service.VoteCatAsync(catDto, CancellationToken.None);
 
             // Assert
             Assert.IsNotNull(result);
@@ -145,11 +145,11 @@ namespace CatMatch.Application.UnitTests.Services
             Assert.AreEqual(15, result.Vote);
 
             this.mockCatMatchDataAccess.Verify(
-                x => x.GetCatByIdAsync("1"), 
+                x => x.GetCatByIdAsync("1", CancellationToken.None), 
                 Times.Once);
 
             this.mockCatMatchDataAccess.Verify(
-                x => x.VoteCat(It.Is<Cat>(c => c.Vote == 15)), 
+                x => x.VoteCat(It.Is<Cat>(c => c.Vote == 15), CancellationToken.None), 
                 Times.Once);
 
             this.mockRepository.VerifyAll();

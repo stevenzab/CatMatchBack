@@ -19,7 +19,7 @@ namespace CatMatch.Infrastructure.Common
             var collection = database.GetCollection<T>(typeof(T).Name);
             entity.Created = DateTime.Now;
             entity.Updated = DateTime.Now;
-            await collection.InsertOneAsync(entity);
+            await collection.InsertOneAsync(entity, null);
         }
 
         public IMongoCollection<T> GetCollection<T>(string name)
@@ -27,7 +27,7 @@ namespace CatMatch.Infrastructure.Common
             return database.GetCollection<T>(name);
         }
 
-        public async Task<bool> UpdateVoteAsync(string id, int voteIncrement)
+        public async Task<bool> UpdateVoteAsync(string id, int voteIncrement, CancellationToken cancellationToken)
         {
             var collection = database.GetCollection<Cat>("Cat");
 
@@ -36,7 +36,7 @@ namespace CatMatch.Infrastructure.Common
                 .Inc(c => c.Vote, voteIncrement) 
                 .Set(c => c.Updated, DateTime.Now);
 
-            var result = await collection.UpdateOneAsync(filter, update);
+            var result = await collection.UpdateOneAsync(filter, update, null, cancellationToken);
 
             return result.ModifiedCount > 0;
         }
