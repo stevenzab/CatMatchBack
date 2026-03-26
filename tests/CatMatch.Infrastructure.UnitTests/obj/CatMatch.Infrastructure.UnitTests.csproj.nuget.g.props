@@ -25,5 +25,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMSTest_Analyzers Condition=" '$(PkgMSTest_Analyzers)' == '' ">C:\Users\Steven\.nuget\packages\mstest.analyzers\4.0.2</PkgMSTest_Analyzers>
+    <PkgMongo2Go Condition=" '$(PkgMongo2Go)' == '' ">C:\Users\Steven\.nuget\packages\mongo2go\4.1.0</PkgMongo2Go>
   </PropertyGroup>
 </Project>

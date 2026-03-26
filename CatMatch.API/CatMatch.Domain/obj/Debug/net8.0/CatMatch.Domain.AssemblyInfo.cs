@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMatch.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b412ac537c85c87cfde0cebc37439919d1fb8c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcd4018c87f06008047d1cb2a3b010c294c4a809")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMatch.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMatch.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
