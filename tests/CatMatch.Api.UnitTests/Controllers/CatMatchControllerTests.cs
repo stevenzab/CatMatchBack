@@ -15,8 +15,8 @@ namespace CatMatch.Api.UnitTests.Controllers
         [TestInitialize]
         public void Setup()
         {
-            mockService = new Mock<ICatMatchService>();
-            controller = new CatMatchController(mockService.Object);
+            this.mockService = new Mock<ICatMatchService>();
+            this.controller = new CatMatchController(mockService.Object);
         }
 
         [TestMethod]

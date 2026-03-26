@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMatch.Api.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbf82ae7aa174a07a59115ab48b6d101a711f154")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b412ac537c85c87cfde0cebc37439919d1fb8c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMatch.Api.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMatch.Api.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
