@@ -2,6 +2,14 @@
 
 Backend API ASP.NET Core pour un projet de vote de chats.
 
+## 🌐 Démo en ligne
+
+L'API est déployée et accessible en production:
+
+**URL**: [https://catmatch-dwgtdxf8dffwepa6.francecentral-01.azurewebsites.net/](https://catmatch-dwgtdxf8dffwepa6.francecentral-01.azurewebsites.net/)
+
+**Swagger UI**: [https://catmatch-dwgtdxf8dffwepa6.francecentral-01.azurewebsites.net/swagger](https://catmatch-dwgtdxf8dffwepa6.francecentral-01.azurewebsites.net/swagger)
+
 ## Sommaire
 
 1. Presentation
