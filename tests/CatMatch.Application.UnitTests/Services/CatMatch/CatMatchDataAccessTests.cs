@@ -33,7 +33,7 @@ namespace CatMatch.Application.UnitTests.Services.CatMatch
             var catMatchDataAccess = this.CreateCatMatchDataAccess();
 
             // Act
-            await catMatchDataAccess.VoteCat(cat, CancellationToken.None);
+            await catMatchDataAccess.VoteCatAsync(cat, CancellationToken.None);
 
             // Assert
             this.mockBaseRepository.Verify(x => x.UpdateVoteAsync(cat.Id, cat.Vote, CancellationToken.None), Times.Once);
@@ -51,7 +51,7 @@ namespace CatMatch.Application.UnitTests.Services.CatMatch
             var catMatchDataAccess = this.CreateCatMatchDataAccess();
 
             // Act
-            await catMatchDataAccess.VoteCat(cat, CancellationToken.None);
+            await catMatchDataAccess.VoteCatAsync(cat, CancellationToken.None);
 
             // Assert
             this.mockBaseRepository.Verify(x => x.UpdateVoteAsync("5", 100, CancellationToken.None), Times.Once);
@@ -69,7 +69,7 @@ namespace CatMatch.Application.UnitTests.Services.CatMatch
             var catMatchDataAccess = this.CreateCatMatchDataAccess();
 
             // Act
-            await catMatchDataAccess.VoteCat(cat, CancellationToken.None);
+            await catMatchDataAccess.VoteCatAsync(cat, CancellationToken.None);
 
             // Assert
             this.mockBaseRepository.Verify(

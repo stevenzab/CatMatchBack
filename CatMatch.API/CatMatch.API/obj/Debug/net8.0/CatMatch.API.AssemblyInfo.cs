@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatMatch.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2149609e8ff674b70647abda8ebfe8c3088e6a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0854981cc7d5034881e7e3d0c68088b277329fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatMatch.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatMatch.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

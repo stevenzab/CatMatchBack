@@ -18,7 +18,7 @@ namespace CatMatch.Application.Services.CatMatch
             return await baseRepository.AsQueryable<Cat>().OrderByDescending(x => x.Vote).ToListAsync(cancellationToken);
         }
 
-        public async Task VoteCat(Cat cat, CancellationToken cancellationToken)
+        public async Task VoteCatAsync(Cat cat, CancellationToken cancellationToken)
         {
             await baseRepository.UpdateVoteAsync(cat.Id, cat.Vote, cancellationToken);
         }

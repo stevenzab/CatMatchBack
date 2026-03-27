@@ -16,7 +16,7 @@ namespace CatMatch.Application.Services
         {
             var cats = await service.GetAllCatAsync(cancellationToken);
 
-            var catDtos = cats.Select(c => c.MapToDto()).ToList();
+            var catDtos = cats.Select(c => c.MapToDto());
 
             return catDtos;
         }
@@ -38,7 +38,7 @@ namespace CatMatch.Application.Services
 
             cat.Vote = catDto.Vote;
 
-            await service.VoteCat(cat, cancellationToken);
+            await service.VoteCatAsync(cat, cancellationToken);
 
             return catDto;
         }

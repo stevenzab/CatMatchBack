@@ -133,7 +133,7 @@ namespace CatMatch.Application.UnitTests.Services
                 .ReturnsAsync(existingCat);
 
             this.mockCatMatchDataAccess
-                .Setup(x => x.VoteCat(It.IsAny<Cat>(), CancellationToken.None))
+                .Setup(x => x.VoteCatAsync(It.IsAny<Cat>(), CancellationToken.None))
                 .Returns(Task.CompletedTask);
 
             // Act
@@ -149,7 +149,7 @@ namespace CatMatch.Application.UnitTests.Services
                 Times.Once);
 
             this.mockCatMatchDataAccess.Verify(
-                x => x.VoteCat(It.Is<Cat>(c => c.Vote == 15), CancellationToken.None), 
+                x => x.VoteCatAsync(It.Is<Cat>(c => c.Vote == 15), CancellationToken.None), 
                 Times.Once);
 
             this.mockRepository.VerifyAll();
