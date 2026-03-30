@@ -16,12 +16,15 @@ namespace CatMatch.API.Controllers
         }
 
         [HttpGet("GetAllCat")]
-        public async Task<IActionResult> GetAllCat(CancellationToken cancellationToken)
+        public async IAsyncEnumerable<CatDto> GetAllCat(CancellationToken cancellationToken)
         {
-            var cat = await service.GetAllCatAsync(cancellationToken);
-            return Ok(cat);
+            await foreach(var cat in service.GetAllCatAsync(cancellationToken))
+            {
+                yield return cat;
+            }
         }
 
+        // return un chat directement avec le vote de la base, mettre en PUT
         [HttpPost("VoteCat")]
         public async Task<IActionResult> VoteCat([FromBody] CatDto cat, CancellationToken cancellationToken)
         {
@@ -31,6 +34,9 @@ namespace CatMatch.API.Controllers
                 new { id = cat.Id },
                 result);
         }
+
+        // endpoint votecatbyID (body tient un champs enumerable like / dislike)
+
         [HttpGet("GetCatById/{id}")]
         public async Task<IActionResult> GetCatById(string id, CancellationToken cancellationToken)
         {

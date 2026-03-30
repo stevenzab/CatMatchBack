@@ -13,8 +13,8 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-bin/
-obj/
+./CatMatch.API/*/bin/*
+./CatMatch.API/obj/*
 
 # Mono auto generated files
 mono_crash.*

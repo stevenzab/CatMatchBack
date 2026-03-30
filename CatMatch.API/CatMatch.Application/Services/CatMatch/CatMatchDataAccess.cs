@@ -13,9 +13,10 @@ namespace CatMatch.Application.Services.CatMatch
             this.baseRepository = baseRepository;
         }
 
-        public async Task<IEnumerable<Cat>> GetAllCatAsync(CancellationToken cancellationToken)
+        //use IASYNCENUMERABLE check "gère la mémoire tt seul possède un await" "toList stock en mémoire"
+        public IAsyncEnumerable<Cat> GetAllCatAsync(CancellationToken cancellationToken)
         {
-            return await baseRepository.AsQueryable<Cat>().OrderByDescending(x => x.Vote).ToListAsync(cancellationToken);
+           return baseRepository.AsQueryable<Cat>().OrderByDescending(x => x.Vote).ToAsyncEnumerable();
         }
 
         public async Task VoteCatAsync(Cat cat, CancellationToken cancellationToken)

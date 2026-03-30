@@ -2,7 +2,30 @@
 using CatMatch.Application.Services;
 using CatMatch.Domain.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Moq;
+using System.Linq;
+
+//automoqdata permet injecter contenaire repo dans le test 
+//[Test, AutoMoqData]
+//public async Task Updating_a_content_with_a_user_not_approved_should_return_a_user_not_approved_response(
+//    [Frozen] Mock<IContentsRepository> contentsRepository,
+//    [Frozen] Mock<IIdentityService> identityService,
+//    UpdateContentMetadataDefinitionUseCase sut
+// sut
+//)
+
+
+//CTOR
+//public UpdateContentMetadataDefinitionUseCase(
+//    IWorkStorageService workStorageService,
+//    IContentsRepository contentsRepository,
+//    IUnitOfWork unitOfWork,
+//    IManifestDefinitionFactory manifestFactory,
+//    INewsGuardRepository newsGuardRepository,
+//    IJTIRepository jtiRepository,
+//    IIdentityService identityService
+//)
 
 namespace CatMatch.Api.UnitTests.Controllers
 {
@@ -19,6 +42,14 @@ namespace CatMatch.Api.UnitTests.Controllers
             this.controller = new CatMatchController(mockService.Object);
         }
 
+        private static async IAsyncEnumerable<CatDto> GetAsyncEnumerable(List<CatDto> items)
+        {
+            foreach (var item in items)
+            {
+                yield return item;
+            }
+        }
+
         [TestMethod]
         public async Task GetAllCat_ShouldReturnOkResult_WithCatsList()
         {
@@ -30,19 +61,21 @@ namespace CatMatch.Api.UnitTests.Controllers
             };
 
             mockService.Setup(s => s.GetAllCatAsync(CancellationToken.None))
-                .ReturnsAsync(catsExpected);
+                .Returns(GetAsyncEnumerable(catsExpected));
 
             // Act
-            var result = await controller.GetAllCat(CancellationToken.None);
+            var result = controller.GetAllCat(CancellationToken.None);
 
             // Assert
-            var okResult = result as OkObjectResult;
-            Assert.IsNotNull(okResult);
-            Assert.AreEqual(200, okResult.StatusCode);
+            var returnedCats = new List<CatDto>();
+            await foreach (var cat in result)
+            {
+                returnedCats.Add(cat);
+            }
 
-            var returnedCats = okResult.Value as IEnumerable<CatDto>;
-            Assert.IsNotNull(returnedCats);
-            Assert.AreEqual(2, returnedCats.Count());
+            Assert.AreEqual(2, returnedCats.Count);
+            Assert.AreEqual("1", returnedCats[0].Id);
+            Assert.AreEqual("2", returnedCats[1].Id);
 
             mockService.Verify(s => s.GetAllCatAsync(CancellationToken.None), Times.Once);
         }

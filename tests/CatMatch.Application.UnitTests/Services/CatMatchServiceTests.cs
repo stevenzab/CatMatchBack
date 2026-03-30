@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+//check fluent assertions
 namespace CatMatch.Application.UnitTests.Services
 {
     [TestClass]
@@ -31,6 +33,13 @@ namespace CatMatch.Application.UnitTests.Services
             return new CatMatchService(
                 this.mockCatMatchDataAccess.Object);
         }
+        private static async IAsyncEnumerable<Cat> GetAsyncEnumerable(List<Cat> items)
+        {
+            foreach (var item in items)
+            {
+                yield return item;
+            }
+        }
 
         [TestMethod]
         public async Task GetAllCatAsync_ShouldReturnMappedCats()
@@ -45,20 +54,25 @@ namespace CatMatch.Application.UnitTests.Services
 
             this.mockCatMatchDataAccess
                 .Setup(x => x.GetAllCatAsync(CancellationToken.None))
-                .ReturnsAsync(catsFromDataAccess);
+                .Returns(GetAsyncEnumerable(catsFromDataAccess));
 
             // Act
-            var result = await service.GetAllCatAsync(CancellationToken.None);
+            var result = service.GetAllCatAsync(CancellationToken.None);
 
             // Assert
+            var returnedCats = new List<CatDto>();
+            await foreach (var cat in result)
+            {
+                returnedCats.Add(cat);
+            }
+
             Assert.IsNotNull(result);
-            var resultList = result.ToList();
-            Assert.AreEqual(2, resultList.Count);
-            Assert.AreEqual("1", resultList[0].Id);
-            Assert.AreEqual("https://example.com/cat1.jpg", resultList[0].Url);
-            Assert.AreEqual(10, resultList[0].Vote);
-            Assert.AreEqual("2", resultList[1].Id);
-            Assert.AreEqual(5, resultList[1].Vote);
+            Assert.AreEqual(2, returnedCats.Count);
+            Assert.AreEqual("1", returnedCats[0].Id);
+            Assert.AreEqual("https://example.com/cat1.jpg", returnedCats[0].Url);
+            Assert.AreEqual(10, returnedCats[0].Vote);
+            Assert.AreEqual("2", returnedCats[1].Id);
+            Assert.AreEqual(5, returnedCats[1].Vote);
 
             this.mockRepository.VerifyAll();
         }
@@ -72,14 +86,20 @@ namespace CatMatch.Application.UnitTests.Services
 
             this.mockCatMatchDataAccess
                 .Setup(x => x.GetAllCatAsync(CancellationToken.None))
-                .ReturnsAsync(catsFromDataAccess);
+                .Returns(GetAsyncEnumerable(catsFromDataAccess));
 
             // Act
-            var result = await service.GetAllCatAsync(CancellationToken.None);
+            var result = service.GetAllCatAsync(CancellationToken.None);
 
             // Assert
+            var returnedCats = new List<CatDto>();
+            await foreach (var cat in result)
+            {
+                returnedCats.Add(cat);
+            }
+
             Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.Count());
+            Assert.AreEqual(0, returnedCats.Count);
 
             this.mockRepository.VerifyAll();
         }
